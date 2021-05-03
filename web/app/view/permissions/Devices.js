@@ -31,6 +31,13 @@ Ext.define('Traccar.view.permissions.Devices', {
             minWidth: Traccar.Style.columnWidthNormal,
             filter: 'string'
         }, {
+            text: Strings.devicePlaca,
+            dataIndex: 'placaId',
+            flex: 1,
+            minWidth: Traccar.Style.columnWidthNormal,
+			hidden: true,
+            filter: 'string'
+        }, {
             text: Strings.deviceIdentifier,
             dataIndex: 'uniqueId',
             flex: 1,
@@ -63,6 +70,14 @@ Ext.define('Traccar.view.permissions.Devices', {
             flex: 1,
             minWidth: Traccar.Style.columnWidthNormal,
             renderer: Traccar.AttributeFormatter.getFormatter('disabled'),
+            hidden: true,
+            filter: 'boolean'
+        }, {
+            text: Strings.sharedExpired,
+            dataIndex: 'expired',
+            flex: 1,
+            minWidth: Traccar.Style.columnWidthNormal,
+            renderer: Traccar.AttributeFormatter.getFormatter('expired'),
             hidden: true,
             filter: 'boolean'
         }, {

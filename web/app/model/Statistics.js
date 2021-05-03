@@ -48,6 +48,9 @@ Ext.define('Traccar.model.Statistics', {
         name: 'smsSent',
         type: 'int'
     }, {
+        name: 'whatsappSent',
+        type: 'int'
+    }, {
         name: 'geocoderRequests',
         type: 'int'
     }, {

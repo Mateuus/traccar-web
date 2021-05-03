@@ -83,6 +83,9 @@ Ext.define('Traccar.view.Statistics', {
             text: Strings.notificatorSms,
             dataIndex: 'smsSent'
         }, {
+            text: Strings.notificatorWhatsApp,
+            dataIndex: 'whatsappSent'
+        }, {
             text: Strings.statisticsGeocoder,
             dataIndex: 'geocoderRequests'
         }, {

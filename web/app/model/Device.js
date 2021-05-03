@@ -26,6 +26,10 @@ Ext.define('Traccar.model.Device', {
         name: 'name',
         type: 'string'
     }, {
+        name: 'placaId',
+        type: 'string',
+		allowNull: true
+    }, {
         name: 'uniqueId',
         type: 'string'
     }, {
@@ -34,6 +38,14 @@ Ext.define('Traccar.model.Device', {
         allowNull: true
     }, {
         name: 'model',
+        type: 'string',
+        allowNull: true
+    }, {
+        name: 'trackermodel',
+        type: 'string',
+        allowNull: true
+    }, {
+        name: 'complement',
         type: 'string',
         allowNull: true
     }, {
@@ -57,6 +69,12 @@ Ext.define('Traccar.model.Device', {
         type: 'int'
     }, {
         name: 'disabled',
+        type: 'boolean'
+    }, {
+        name: 'photo',
+        type: 'auto'
+    }, {
+        name: 'expired',
         type: 'boolean'
     }, {
         name: 'geofenceIds'

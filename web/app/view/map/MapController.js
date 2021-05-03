@@ -64,6 +64,46 @@ Ext.define('Traccar.view.map.MapController', {
         }
     },
 
+    openStreetView:function(button,pressed){
+        if (pressed && this.selectedMarker) {
+           if(pressedDevice == null) {
+               pressedDevice = this.selectedMarker.get('record').get('id');
+           }
+           var position = Ext.getStore('LatestPositions').findRecord('deviceId',pressedDevice,0,false,false,true);
+           
+           const panorama = new google.maps.StreetViewPanorama(
+           document.getElementById("street-view"),
+           {
+             position: {
+               lat: position.get('latitude'),
+               lng: position.get('longitude')
+             },
+             pov: {
+               heading: 34,
+               pitch: 10,
+             },
+             visible: true,
+             motionTracking: false,
+             motionTrackingControl: false,
+             linksControl: false,
+             panControl: false,
+             enableCloseButton: false
+           }
+         );
+         document.getElementById('street-view').style.position = 'absolute';
+         document.getElementById('street-view').style.right = '0px';
+         document.getElementById('street-view').style.bottom = '0px';
+         document.getElementById('street-view').style.cssFloat = 'right';
+         document.getElementById('street-view').style.marginRight = '55px';
+         document.getElementById('street-view').style.display = 'block';
+         document.getElementById('street-view').style.marginBottom = '55px';
+       }else{
+           document.getElementById('street-view').style.display = 'none';
+           pressedDevice = null;
+           panorama = null;
+       }
+   },
+
     showLiveRoutes: function (button) {
         this.getView().getLiveRouteLayer().setVisible(button.pressed);
     },

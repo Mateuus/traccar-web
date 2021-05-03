@@ -109,6 +109,7 @@ const StatisticsPage = () => {
               <TableCell>{t('statisticsMessagesStored')}</TableCell>
               <TableCell>{t('notificatorMail')}</TableCell>
               <TableCell>{t('notificatorSms')}</TableCell>
+              <TableCell>{t('notificatorWhatsApp')}</TableCell>
               <TableCell>{t('statisticsGeocoder')}</TableCell>
               <TableCell>{t('statisticsGeolocation')}</TableCell>
             </TableRow>
@@ -124,6 +125,7 @@ const StatisticsPage = () => {
                 <TableCell>{item.messagesStored}</TableCell>
                 <TableCell>{item.mailSent}</TableCell>
                 <TableCell>{item.smsSent}</TableCell>
+                <TableCell>{item.whatsappSent}</TableCell>
                 <TableCell>{item.geocoderRequests}</TableCell>
                 <TableCell>{item.geolocationRequests}</TableCell>                           
               </TableRow>

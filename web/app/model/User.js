@@ -35,6 +35,12 @@ Ext.define('Traccar.model.User', {
         name: 'password',
         type: 'string'
     }, {
+        name: 'cpf',
+        type: 'string'
+    }, {
+        name: 'telegram',
+        type: 'string'
+    }, {
         name: 'phone',
         type: 'string'
     }, {

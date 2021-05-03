@@ -91,7 +91,7 @@
         'zh_TW': { name: '中文 (Taiwan)', code: 'zh_TW' }
     };
 
-    languageDefault = 'en';
+    languageDefault = 'pt_BR';
     localeParameter = window.location.search.match(/locale=([^&#]+)/);
     locale.language = localeParameter && localeParameter[1];
     if (!(locale.language in locale.languages)) {
@@ -176,8 +176,11 @@
 
     addStyleFile('https://cdn.traccar.com/js/ol/' + olVersion + '/ol.css');
     addScriptFile('https://cdn.traccar.com/js/ol/' + olVersion + '/ol.js');
+	
+	//addStyleFile('https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v' + olVersion + '/css/ol.css');
+    //addScriptFile('https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v' + olVersion + '/build/ol.js');
 
-    addStyleFile('https://cdn.traccar.com/js/ol-layerswitcher/' + olLayerSwitcherVersion + '/ol-layerswitcher.css');
+    //addStyleFile('https://cdn.traccar.com/js/ol-layerswitcher/' + olLayerSwitcherVersion + '/ol-layerswitcher.css');
     addScriptFile('https://cdn.traccar.com/js/ol-layerswitcher/' + olLayerSwitcherVersion + '/ol-layerswitcher.js');
 
     if (debugMode) {
@@ -185,6 +188,17 @@
     } else {
         addScriptFile('https://cdn.traccar.com/js/proj4js/' + proj4jsVersion + '/proj4.js');
     }
+	
+	addScriptFile('https://maps.googleapis.com/maps/api/js?key=AIzaSyAK9rvhahXGmNQs9KQs-gbx4etmqSiAewo');
+	//GNU
+	addStyleFile('themes/default/style.css');
+	addStyleFile('//cdn.rawgit.com/walkermatt/ol-popup/494a42c0/src/ol-popup.css');
+    addScriptFile('//cdn.rawgit.com/walkermatt/ol-popup/494a42c0/dist/ol-popup.js');
+	addStyleFile('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+    addScriptFile('//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js');
+    addScriptFile('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js');
+    addScriptFile('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js');
+    addScriptFile('conf/sweetalert/notify.min.js');
 
     window.Images = ['arrow', 'default', 'animal', 'bicycle', 'boat', 'bus', 'car', 'crane', 'helicopter', 'motorcycle',
         'offroad', 'person', 'pickup', 'plane', 'ship', 'tractor', 'train', 'tram', 'trolleybus', 'truck', 'van', 'scooter'];

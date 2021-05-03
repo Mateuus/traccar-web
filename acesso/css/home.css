@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Anton|Teko&display=swap');
+html, body {
+    margin: 0;
+    height: 100%;
+    color: #6b6b6b !important;
+    background-image: url(../images/bg-02.jpg);
+    width: 100%;
+    min-height: 100%;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.conatto h2 {
+    /* font-family: 'Anton', sans-serif; */
+    color: #3d4365;
+    font-size: 32px;
+    font-family: 'Teko', sans-serif;
+}
+.conatto h3 {
+    /* font-family: 'Anton', sans-serif; */
+    color: #3d4365;
+    font-size: 32px;
+    font-family: 'Teko', sans-serif;
+}
+.conatto h3:hover{
+    cursor: pointer;
+}
+.conatto i {
+    /* font-family: 'Anton', sans-serif; */
+    font-size: 25px;
+}
+.topo{
+    padding-top:15px;
+    padding-bottom:15px;
+}
+.topo ul {
+    list-style:none;
+}
+.topo ul>li {
+    display:inline-block;
+    margin-left:10px;
+}
+.apps{
+    padding-top:25px;
+}
+.topo .apps img {
+    width:150px;
+    height:50px;
+}
+.bg-img {
+    padding-top:180px;
+}
+.bg-img h1{
+    color:#fff;
+    margin-top:25px;
+}
+.bg-img h1::after{
+    content:'|';
+    margin-left:7px;
+    opacity: 1;
+    animation: piscar .7s infinite;
+}
+.formulario{
+    width: 35%;
+    /* height: 324px; */
+    padding: 30px 40px 25px 40px;
+    box-shadow: 1px 1px 20px black;
+    background: #ffffffeb;
+}
+.formulario a{
+    color:#6a6b6b!important;
+    text-decoration:none!important;
+}
+.bg-img .btn-primary{
+    width:100%;
+    margin-top:25px;
+    margin-bottom: 25px;
+}
+.qr-code{
+    position:absolute;
+}
+.form-check-label{
+    cursor:pointer;
+}
+.alert-danger{
+    width: 50%!important;
+}
+.form-check-label {
+    margin-bottom: 0;
+    color: #014667;
+}
+#ios:hover{
+    cursor: pointer;
+}
+#android:hover{
+    cursor: pointer;
+}
+#attribution {
+    color: #e4e4e4;
+    font-size: medium!important;
+    position: absolute;
+    bottom: 40px;
+    margin-left: 20px;
+    font-size: x-small;
+    z-index: 10;
+}
+.redefinir-senha{
+    color:#fff!important;
+    padding-left: 10%;
+}
+.redefinir-senha a{
+    color:#fff!important;
+}
+@media (max-width: 991px) {
+    .mobile {
+      display: none;
+    }
+    .formulario{
+        width:100%!important;
+        height: 100%!important;
+        padding:70px 40px 40px 40px!important;
+        background: #ffffffeb;
+    }
+    .bg-img {
+        padding-top: 80px;
+    }
+}
+@keyframes piscar {
+    0%, 100%{
+        opacity:1;
+    }
+    50%{
+        opacity:0;
+    }
+}
+
+/* new */
+.ul-payment {
+    list-style:none;
+}
+
+.ul-payment li {
+    margin-top: 15px;
+}
+
+.btn-payment{
+    margin-left: 6px;
+}
+
+.show {
+    display:block!important;
+}

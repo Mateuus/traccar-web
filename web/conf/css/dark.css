@@ -1,0 +1,71 @@
+/* Painel  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+.toolbar-header-style {
+    background-color: #000000!important;
+}
+.x-panel-header-default-vertical {
+    background-color: #000000!important;
+}
+.x-panel-header-default {
+    border: 1px solid #000000!important;
+    background-color: #000000!important;
+}
+.x-panel-header-default .x-tool-tool-el {
+    background-color: #000000!important;
+}
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+.x-btn-inner-default-toolbar-small{
+    color:#ffffff!important;
+}
+
+.x-btn-wrap-default-toolbar-small.x-btn-arrow-right:after{
+    color: #ffffff!important;
+}
+
+/* Botoes =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- */
+.x-toolbar .x-btn {
+    border: none!important;
+    border-radius: 15px!important;
+    text-decoration: none!important;
+}
+.x-btn-icon-el-default-toolbar-small {
+    color: #ffffff!important;
+}
+.x-btn-default-toolbar-small {
+    background: none!important;
+    border: none!important;
+}
+.x-btn-focus.x-btn-over.x-btn-default-toolbar-small{
+    box-shadow: none!important;
+}
+.x-btn-focus.x-btn-default-toolbar-small{
+    box-shadow: none!important;
+}
+.x-btn.x-btn-pressed.x-btn-default-toolbar-small{
+    background: #9e9e9e59!important;
+}
+.x-toolbar-default{
+    background: #000000!important;
+}
+.x-toolbar-text-default{
+   color: #ffffff!important;
+}
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+/* Janelas =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+.x-window-default {
+    border-color: #000000!important;
+}
+.x-window-header-default-top {
+    background-color: #000000!important;
+}
+.x-window-header-default {
+    border-color: #000000!important;
+}
+.x-window-header-default .x-tool-img {
+    background-color: #000000!important;
+}
+.x-btn-default-small {
+    background-color: #000000!important;
+}
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */

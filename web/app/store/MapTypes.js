@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Anton Tananaev (anton@traccar.org)
+ * Copyright 2021 Anton Tananaev (anton@traccar.org)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,34 +19,23 @@ Ext.define('Traccar.store.MapTypes', {
     extend: 'Ext.data.Store',
     fields: ['key', 'name'],
 
-    data: [{
+    data: [
+	{
+        key: 'googleR',
+        name: Strings.mapGoogleR
+    }, {
+        key: 'googleT',
+        name: Strings.mapGoogleT
+    }, {
+        key: 'googleSA',
+        name: Strings.mapGoogleSA
+    }, {
+        key: 'googleH',
+        name: Strings.mapGoogleH
+    }, {
         key: 'carto',
         name: Strings.mapCarto
-    }, {
-        key: 'osm',
-        name: Strings.mapOsm
-    }, {
-        key: 'bingRoad',
-        name: Strings.mapBingRoad
-    }, {
-        key: 'bingAerial',
-        name: Strings.mapBingAerial
-    }, {
-        key: 'bingHybrid',
-        name: Strings.mapBingHybrid
-    }, {
-        key: 'autoNavi',
-        name: Strings.mapAutoNavi
-    }, {
-        key: 'yandexMap',
-        name: Strings.mapYandexMap
-    }, {
-        key: 'yandexSat',
-        name: Strings.mapYandexSat
-    }, {
-        key: 'wikimedia',
-        name: Strings.mapWikimedia
-    }, {
+    },	{
         key: 'custom',
         name: Strings.mapCustom
     }, {

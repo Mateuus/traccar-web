@@ -74,6 +74,38 @@ Ext.define('Traccar.view.edit.Devices', {
         }]
     },
 
+	bbar: {
+        componentCls: 'toolbar-header-style',
+        defaults: {
+			xtype: 'tbtext',
+			html: Strings.sharedSearch,
+            baseCls: 'x-panel-header-title-default'
+        },
+        items: [{
+			xtype: 'tbtext',
+			html: Strings.sharedSearch,
+			},{
+			xtype: 'textfield',
+			flex: 1, 
+			listeners: {
+				change: function () {
+					this.up('grid').store.clearFilter();
+					var regex = RegExp(this.getValue(), 'i');				
+
+					this.up('grid').store.filter(new Ext.util.Filter({
+						filterFn: function (object) {
+							var match = false;
+							Ext.Object.each(object.data, function (property, value) {
+								match = match ||  regex.test(String(value));
+							});
+							return match;
+						  }
+					}));
+				}
+			}
+		}]
+    },
+
     listeners: {
         selectionchange: 'onSelectionChange'
     },
@@ -102,6 +134,11 @@ Ext.define('Traccar.view.edit.Devices', {
             dataIndex: 'name',
             filter: 'string'
         }, {
+            text: Strings.devicePlaca,
+            dataIndex: 'placaId',
+            hidden: true,
+            filter: 'string'
+        }, {
             text: Strings.deviceIdentifier,
             dataIndex: 'uniqueId',
             hidden: true,
@@ -113,6 +150,14 @@ Ext.define('Traccar.view.edit.Devices', {
         }, {
             text: Strings.deviceModel,
             dataIndex: 'model',
+            hidden: true
+        }, {
+            text: Strings.deviceTrackerModel,
+            dataIndex: 'trackermodel',
+            hidden: true
+        }, {
+            text: Strings.deviceComplement,
+            dataIndex: 'complement',
             hidden: true
         }, {
             text: Strings.deviceContact,
@@ -132,6 +177,12 @@ Ext.define('Traccar.view.edit.Devices', {
             text: Strings.sharedDisabled,
             dataIndex: 'disabled',
             renderer: Traccar.AttributeFormatter.getFormatter('disabled'),
+            hidden: true,
+            filter: 'boolean'
+        }, {
+            text: Strings.sharedExpired,
+            dataIndex: 'expired',
+            renderer: Traccar.AttributeFormatter.getFormatter('expired'),
             hidden: true,
             filter: 'boolean'
         }, {
@@ -178,6 +229,50 @@ Ext.define('Traccar.view.edit.Devices', {
             text: Strings.deviceLastUpdate,
             dataIndex: 'lastUpdate',
             renderer: Traccar.AttributeFormatter.getFormatter('lastUpdate')
-        }]
+        }, 	{
+			text: Strings.positionSpeed,
+			dataIndex: 'attributes',
+			renderer: function (value, metaData, device) {
+				var position;
+				return position = (position = Ext.getStore('LatestPositions').findRecord('deviceId',device.get('id'),0,false,false,true))?Math.floor(position.data.speed)+" km/h":"0 km/h"				
+            }
+		}, 	{
+			text: "Status",
+			dataIndex: 'attributes',
+			renderer: function (value, metaData, device) {
+				var statusDevice;
+				var ignition = '<i class="fa fa-key" style="color:#A9A9A9" title="Nenhum Status de ignição"></i>'
+				var motion = '<i class="fas fa-stop" style="margin-left:5px;color:#A9A9A9" title="Veiculo parado"></i>';
+				var block = '<i class="fas fa-lock-open" style="margin-left:5px;position:relative;top:-1px;color:#A9A9A9" title="Nenhum Status de Bloqueio"></i>';
+				var power = '<i class="fas fa-exclamation-triangle" style="margin-left:5px;color:#A9A9A9" title="Nenhum Alerta"></i>';
+				
+				if (statusDevice = (statusDevice = Ext.getStore('LatestPositions').findRecord('deviceId',device.get('id'),0,false,false,true))) 
+				{	
+					if(statusDevice.data.attributes.ignition == 1)  {
+						ignition = '<i class="fa fa-key" style="color:#00a82d" title="Ignição Ligada"></i>';
+					} else if(statusDevice.data.attributes.ignition == 0)  {
+						ignition = '<i class="fa fa-key" style="color:#ea0707" title="Ignição desligada"></i>';
+					}
+            
+					if(statusDevice.data.attributes.motion == 1)  {
+						if(statusDevice.data.speed >= 1) {
+							motion = '<i class="fas fa-angle-double-right" style="margin-left:5px;color:blue; text-shadow: 0 0 4px #000;" title="Veículo em movimento"></i>';
+						}
+					}
+
+                    if(statusDevice.data.attributes.blocked == 1)  {
+						block = '<i class="fas fa-lock" style="margin-left:5px;position:relative;top:-1px;color:#d60b0b; text-shadow: 0 0 4px #000;" title="Bloqueado"></i>';
+					} else if(statusDevice.data.attributes.blocked == 0)  {
+						block = '<i class="fas fa-lock-open" style="margin-left:5px;position:relative;top:-1px;color:#00a82d" title="Desbloqueado"></i>';
+					}
+
+                    if(statusDevice.data.attributes.alarm == "powerOff")  {
+						power = '<i class="fas fa-exclamation-triangle" style="margin-left:5px;color:#d60b0b; text-shadow: 0 0 4px #000;" title="powerOff" id="ext-element-107"></i>';
+					}
+                    
+					return ignition+motion+block+power
+				} return ignition+motion+block+power
+			}
+		}]
     }
 });

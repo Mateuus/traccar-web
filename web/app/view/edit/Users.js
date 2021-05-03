@@ -105,6 +105,37 @@ Ext.define('Traccar.view.edit.Users', {
             tooltipType: 'title'
         }]
     },
+    bbar: {
+        componentCls: 'toolbar-header-style',
+        defaults: {
+			xtype: 'tbtext',
+			html: Strings.sharedSearch,
+            baseCls: 'x-panel-header-title-default'
+        },
+        items: [{
+			xtype: 'tbtext',
+			html: Strings.sharedSearch,
+			},{
+			xtype: 'textfield',
+			flex: 1, 
+			listeners: {
+				change: function () {
+					this.up('grid').store.clearFilter();
+					var regex = RegExp(this.getValue(), 'i');				
+
+					this.up('grid').store.filter(new Ext.util.Filter({
+						filterFn: function (object) {
+							var match = false;
+							Ext.Object.each(object.data, function (property, value) {
+								match = match ||  regex.test(String(value));
+							});
+							return match;
+						  }
+					}));
+				}
+			}
+		}]
+    },
 
     listeners: {
         selectionchange: 'onSelectionChange'
@@ -122,6 +153,14 @@ Ext.define('Traccar.view.edit.Users', {
         }, {
             text: Strings.userEmail,
             dataIndex: 'email',
+            filter: 'string'
+        }, {
+            text: Strings.userCPF,
+            dataIndex: 'cpf',
+            filter: 'string'
+        }, {
+            text: Strings.userTelegram,
+            dataIndex: 'telegram',
             filter: 'string'
         }, {
             text: Strings.userAdmin,

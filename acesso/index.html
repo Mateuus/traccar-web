@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-br">
+    <head>
+        <title>RDM RASTREAMENTO</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="selection bg-img">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-center">
+                        <form method="post" id="login-form" class="formulario">
+                            <div class="col-12 text-center">
+                                <img class="img-fluid mr-auto" src="../themes/default/logo.png" alt="Logo" width="200" height="200" style="margin-bottom:30px">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Usuario">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha">
+                            </div>
+                            <div class="form-check" style="margin-top:30px;">                  
+                                <div>
+                                    <div class="row">
+                                        <div class="col-md-6 col-sm-6 col-6">
+                                            <input type="checkbox" id="lembreme" name="lembreme" value="" class="form-check-input">
+                                            <label class="form-check-label" for="exampleCheck1">Lembra-me</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary" name="btn-login" id="btn-login">Acessar Sistema</button>                      
+                            <div class="">
+                                <div id="erro-login"></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="js/bootstrap-notify.min.js"></script>
+        <script src="js/login.js"></script>
+       <!--<script src="js/zap.js"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    </body>
+</html>

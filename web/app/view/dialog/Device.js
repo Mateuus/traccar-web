@@ -39,6 +39,11 @@ Ext.define('Traccar.view.dialog.Device', {
                 allowBlank: false
             }, {
                 xtype: 'unescapedTextField',
+                name: 'placaId',
+                fieldLabel: Strings.devicePlaca,
+                allowBlank: false
+            }, {
+                xtype: 'unescapedTextField',
                 name: 'uniqueId',
                 fieldLabel: Strings.deviceIdentifier,
                 allowBlank: false
@@ -66,6 +71,14 @@ Ext.define('Traccar.view.dialog.Device', {
                 fieldLabel: Strings.deviceModel
             }, {
                 xtype: 'unescapedTextField',
+                name: 'trackermodel',
+                fieldLabel: Strings.deviceTrackerModel
+            }, {
+                xtype: 'unescapedTextField',
+                name: 'complement',
+                fieldLabel: Strings.deviceComplement
+            }, {
+                xtype: 'unescapedTextField',
                 name: 'contact',
                 fieldLabel: Strings.deviceContact
             }, {
@@ -86,6 +99,25 @@ Ext.define('Traccar.view.dialog.Device', {
                     }
                 }
             }, {
+				
+				xtype: 'filefield',
+				name: 'file',
+				fieldLabel: 'Carregar Foto',
+				buttonConfig:{
+					glyph: 'xf093@FontAwesome',
+                    text: '',
+                    tooltip: Strings.sharedSelectFile,
+                    tooltipType: 'title',
+                    minWidth: 0
+				},
+				listeners:{
+					change: 'onDeviceFileChange'
+				}			
+            }, {
+				xtype: 'hiddenfield',
+				name: 'photo',
+				reference: 'dataField'
+			}, {
                 xtype: 'checkboxfield',
                 inputValue: true,
                 uncheckedValue: false,
@@ -93,6 +125,14 @@ Ext.define('Traccar.view.dialog.Device', {
                 fieldLabel: Strings.sharedDisabled,
                 hidden: true,
                 reference: 'disabledField'
+            }, {
+                xtype: 'checkboxfield',
+                inputValue: true,
+                uncheckedValue: false,
+                name: 'expired',
+                fieldLabel: Strings.sharedExpired,
+                hidden: true,
+                reference: 'expiredField'
             }]
         }]
     }

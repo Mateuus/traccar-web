@@ -55,6 +55,14 @@ Ext.define('Traccar.view.dialog.User', {
             collapsed: true,
             items: [{
                 xtype: 'unescapedTextField',
+                name: 'cpf',
+                fieldLabel: Strings.userCPF
+            },{
+                xtype: 'unescapedTextField',
+                name: 'telegram',
+                fieldLabel: Strings.userTelegram
+            },{
+                xtype: 'unescapedTextField',
                 name: 'phone',
                 fieldLabel: Strings.sharedPhone
             }, {

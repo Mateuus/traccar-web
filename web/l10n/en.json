@@ -384,6 +384,7 @@
     "notificatorWeb": "Web",
     "notificatorMail": "Mail",
     "notificatorSms": "SMS",
+    "notificatorWhatsApp": "WhatsApp",
     "notificatorFirebase": "Firebase",
     "notificatorTraccar": "Traccar",
     "reportReplay": "Replay",

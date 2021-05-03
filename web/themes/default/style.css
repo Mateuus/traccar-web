@@ -1,0 +1,575 @@
+/* COLOR GLOBAL  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+:root {
+	--global-color: #000000; /* COR PRIMÁRIA! */
+    --global-color-icones-janelas: #ffffff; /* Cor dos ícones de todas as janelas */ 
+    --global-color-icones-menu: #ffffff; /* Cor dos ícones do menu */
+
+    --global-color-back-icone-menu: #000000; /* Cor de fundo dos ícones do menu. PRIMÁRIA! */
+    --global-color-back-icone-janelas: #808080; /* Cor de fundo dos ícones das janelas SECUNDÁRIA! */
+    --global-color-btn-login: linear-gradient( 135deg, #808080 -50%, #000000 100%); /* BOTÃO LOGIN ACESSO AO SISTEMA. Linha 502*/
+    --global-color-gradiente: linear-gradient( 135deg, #808080 -50%, #000000 100%); /* Gradiente. Da Secundária > Primária */
+
+    --global-color-bordas-janelas: #000000; /* Cor das bordas. PRIMÁRIA! */
+    --global-color-solid-janelas: #000000; /* Cor sólida da 1º barra das janelas, barra vertical, contador de usuários. PRIMÁRIA!  */
+
+}
+/*Div Spinner imagem */
+.spinner-section{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Logo Interno */
+#logam {
+    width: 150px;
+    opacity:0.7;
+}
+/* Logo Externo */
+#logo_info {
+    width: 200px!important;
+}
+/* Logo Interno Mobile */
+.img-int {
+	height: 42px!important;
+}
+.ol-popup-closer {
+    width: 20px!important;
+}
+button#bloqueiio {
+    background-color: red!important;
+}
+button#desbloqueio {
+    background-color: blue!important;
+}
+/* fa e fas são os ícones da coluna status quando passa o mouse */
+i.fa:hover {
+    font-size: 18px!important;
+}
+i.fas:hover {
+    font-size: 18px!important;
+}
+/* Botão de mapas do menu */
+.layer-switcher button {
+	background-color: var(--global-color-back-icone-menu)!important;
+	border-radius: 50%!important;
+}
+
+/* ****************************************** */
+
+/* Painel  =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+.toolbar-header-style {
+    background-color: var(--global-color)!important;
+}
+.x-panel-header-default-vertical {
+    background-color: var(--global-color)!important; 
+}
+.x-panel-header-default {
+    border: 1px solid var(--global-color)!important;
+    background-color: var(--global-color)!important;
+}
+.x-panel-header-default .x-tool-tool-el {
+    background-color: var(--global-color)!important;
+}
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+.x-btn-inner-default-toolbar-small{
+    color:#ffffff!important;
+}
+
+.x-btn-wrap-default-toolbar-small.x-btn-arrow-right:after{
+    color: #ffffff!important;
+}
+
+/* Ícones das janelas */
+.x-toolbar .x-btn {
+    border-radius: 7px!important;
+    text-decoration: none!important;
+    background-color: var(--global-color-back-icone-janelas)!important;
+}
+
+/* Cor dos ícones de todas as janelas, exceto menu. */
+.x-btn-icon-el-default-toolbar-small {
+    color: var(--global-color-icones-janelas)!important;
+}
+.x-btn-default-toolbar-small {
+    background: none!important;
+    border: none!important;
+}
+.x-btn-focus.x-btn-over.x-btn-default-toolbar-small{
+    box-shadow: none!important;
+}
+.x-btn-focus.x-btn-default-toolbar-small{
+    box-shadow: none!important;
+}
+.x-btn.x-btn-pressed.x-btn-default-toolbar-small{
+    background: #9e9e9e59!important;
+}
+.x-toolbar-default{
+    background: var(--global-color-gradiente)!important;
+}
+.x-toolbar-text-default{
+   color: #ffffff!important;
+}
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+/* Janelas =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+.x-window-default {
+    border-color: var(--global-color-bordas-janelas)!important;
+}
+
+/* Faxa Principal das janelas. Cor Sólida */
+.x-window-header-default-top {
+    background-color: var(--global-color-solid-janelas) !important;
+}
+
+/* Borda divisoria das barras das janelas (primeira e segunda barra). Mega Box */
+.x-window-header-default {
+    border-color: var(--global-color-bordas-janelas) !important;
+}
+
+/* Aparentemente só o X que fecha as janelas */
+.x-window-header-default .x-tool-img {
+    background-color: red !important;
+}
+.x-btn-default-small {
+    border-color:var(--global-color)!important;
+    background-color:var(--global-color)!important;
+}
+/* =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= */
+
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto|Ubuntu');
+.sp-10{
+    margin-bottom:10px
+}
+.sp-20{
+    margin-bottom:20px
+}
+.view-color-green {
+    background-color: rgba(77, 250, 144, 0.3);
+}
+.view-color-yellow {
+    background-color: rgba(250, 190, 77, 0.3);
+}
+.view-color-red {
+    background-color: rgba(255, 84, 104, 0.3);
+}
+.view-item-disabled {
+    opacity: 0.5;
+}
+/* Barra Vertical que separa os veiculos do mapa. */
+body.x-border-layout-ct, div.x-border-layout-ct {
+    background-color: var(--global-color-solid-janelas) !important;
+}
+
+.x-fieldset {
+    overflow: visible !important; /* workaround for Safari issue */
+}
+#attribution {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: x-small;
+}
+
+/* Início Configurações Street View*/
+.street-view {
+    position: absolute;    
+    margin-right: 7px !important;
+	margin-bottom: 3px !important;
+    width: 385px;
+	height: 260px;
+    background: rgba(255, 255, 255, .0);
+    border-radius: 8px 8px 8px 8px;
+    text-align: center;
+    color: #fff;
+	z-index: 999999;
+	display: none;
+}
+div.gmnoprint div {
+    background-color: rgba(0, 0, 0, 0.0)!important;
+}
+div.gm-style-cc {
+    background-color: rgba(0, 0, 0, 0.1)!important;
+
+}
+
+button.gm-control-active {
+    color: #fff!important;
+    background-color: #fff!important;
+    width: 25px!important;
+    height: 25px!important;
+    left: 15px!important;
+    top: 30px!important;
+
+ }
+button.gm-fullscreen-control {
+    margin-top: -20px!important;
+    margin-left: 335px!important;
+}
+
+@media (max-width:420px){
+	.street-view {
+		position: absolute;    
+		left:20;
+		bottom:120;
+		width: 290px;
+		height: 200px;
+		background: rgba(255, 255, 255, .0);   
+		border-radius: 8px 0 0 8px;
+		text-align: center;
+		color: #fff;
+		z-index: 999999;
+		display:none;
+	}		
+}
+/* FIM Configurações Street View */
+
+.rotate-north {
+    top: 180px;
+    left: 6px;
+}
+.popover-body{
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+code {
+    font-size: 1.0em!important;
+    margin-left: 5px!important;
+    color: #214379!important;
+}
+.img-car {
+    width: 100px;
+    height: 100px;
+    display: block;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 10px 0px #348bc7;
+    -moz-box-shadow: 0px 0px 10px 0px #348bc7;
+    box-shadow: 0px 0px 10px 0px #348bc7;
+}
+.duo-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.ol-popup {
+    position: absolute;
+    -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    padding: 15px!important;
+    bottom: 12px;
+    left: -50px;
+    min-width: 260px;
+    display:none;
+    border-radius: 5%!important;
+    border-top-left-radius: 50px 50px!important;
+    border-bottom-right-radius: 50px 50px!important;
+}
+.pop-up-just{
+    position: relative;
+    left: -15px;
+    top: -5px;
+}
+.ol-popup:after, .ol-popup:before {
+    top: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.ol-popup:after {
+    border-top-color: #fff!important;
+    border-width: 10px;
+    left: 48px;
+    margin-left: -10px;
+} 
+.ol-popup:before {
+    border-top-color: #fff!important;
+    border-width: 11px;
+    left: 48px;
+    margin-left: -11px;
+}
+.ol-popup-closer {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 90%!important;
+    padding: 1px 6px!important;
+    color: #dc3545!important;
+    text-decoration: none;
+}
+.ol-popup-closer:after {
+    content: "✖";
+}
+.nome {
+    color: rgb(51, 51, 51);
+    font-size: 20px;
+    padding-top: 3px;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+}
+.btn-secondary {
+    background-color: #9fc6e8!important;
+    border-color: #9fc6e8!important;
+}
+/* =-=-=-== */
+.usd {
+    color:#fff;
+    padding: 5px!important;
+}
+
+#spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    border-radius: 50%;
+    border-top: 6px solid #5fa2dd;
+    border-right: 6px solid transparent;
+    animation: spinner .6s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* Opções de Mapa - popup. */
+.layer-switcher .panel {
+    border: 4px solid #525f94!important;
+    background-color: #525f94!important;
+    color: #fff!important;
+    display: none;
+    margin-right: 38px!important;
+}
+
+/* Aparentemente só a cor do contados de usuários */
+.ol-scale-line {
+    background: var(--global-color-solid-janelas) !important;
+}
+/* =-=-=-=-=-=- */
+
+.ol-logo-int {
+    position: absolute;
+    border-radius: 4px;
+    padding: 2px;
+    margin-top: -130px!important;
+    margin-left: -8px!important;
+}
+
+.layer-switcher {
+    top: 5.1em!important;
+    z-index: 100!important;
+}
+
+.btns {
+    width:32px!important;
+    height:32px!important;
+}
+.btnsC {
+    width:32px!important;
+    height:32px!important;
+    background: darkseagreen!important;
+}
+button:focus {
+    outline: 0px!important;
+    outline: 0px!important;
+}
+
+.ol-popup {
+    z-index:110!important;
+}
+
+.olcontrol button {
+    border-radius:50%!important;
+    background-color: var(--global-color)!important;
+}
+/* Controladores de Zoom. */
+.ol-zoom {
+    top: 10em!important;
+    left: 7px!important;
+}
+.ol-zoom-in {
+    border-radius: 25%!important;
+    width: 38px!important;
+    /* background-color: var(--global-color)!important; */
+}
+.ol-zoom-out {
+    border-radius: 25%!important;
+    width: 38px!important;
+    /* background-color: var(--global-color)!important; */
+}
+
+.ol-control {
+    padding: 0!important;
+    background:none!important; /* MUDAR EDITAR APAGAR. ORIGINAL: background:none!important; */
+}
+
+/* NEWS */
+
+@media (max-width:768px){
+    .layer-menu{
+        display: none;
+    }
+    .menu-btns {
+        display: none;
+    }
+    .rotate-north{
+        margin-top:10px!important;
+    }
+}
+
+.layer-menu {
+    position: absolute;
+    top: 8.0em;
+    right: 0.5em;
+    text-align: left;
+    background-color: transparent;
+    z-index: 2;
+}
+
+/* Ícone do Menu de configuração */
+.layer-menu button {
+    float: right!important;
+    background-color: var(--global-color-back-icone-menu)!important;
+    color: var(--global-color-icones-menu)!important;
+    border-radius: 50px !important;
+    transition: background-color 0.5s ease!important;
+    height: 32px!important;
+    width: 32px!important;
+}
+
+.menu-btns {
+    position: absolute;
+    top: 10.2em;
+    right: 0.3em;
+    text-align: left;
+    background-color: transparent;
+    font-size: 1.2em;
+    width: 36px;
+    z-index: 1;
+}
+
+/* Ícones do menu.*/
+.menu-btns button {
+    background-color: var(--global-color-back-icone-menu)!important;
+    color: var(--global-color-icones-menu)!important;
+    border-radius: 50px!important;
+    /* transition: background-color 0.5s ease; */
+    border-radius: 3px;
+    height: 32px!important;
+    width: 32px!important;
+    z-index: 1!important;
+}
+
+/* Cores dos ícones do menu quando passado o mouse. */
+.menu-btns button:hover {
+    background-color: #fff!important;
+    color: #000!important;
+}
+
+/* Menu de configurações. popup. */
+.layer-menu .panel {
+    padding: 0 1em 0 0!important;
+    margin: 0!important;
+    border: 4px solid #fff!important;
+    border-radius: 4px!important;
+    background-color: white!important;
+    display: none;
+    max-height: 100%!important;
+    z-index: 99999!important;
+    margin-right: 38px!important;
+}
+
+.layer-menu .show {
+    display:block!important;
+}
+
+
+.layer-switcher.shown button{
+    display:block!important;
+}
+
+.layer-menu .hidden {
+    /*display:none!important;*/
+}
+
+/* Botão tela inicial de lohin - Acesso ao sistema */
+.btn-primary {
+    color: #fff!important;
+    background: var(--global-color-btn-login)!important;
+    border-color: #000000!important;
+}
+
+/*================================================*/
+
+.layer-menu li.layer label, .layer-menu li.layer input {
+    display: table-cell;
+    vertical-align: sub;
+}
+
+.layer-menu ul {
+    padding-left: 1em;
+    list-style: none;
+}
+
+.layer-menu li.layer {
+    display: table;
+    padding-top: 10px;
+    margin-left: 5px;
+}
+
+.panel label {
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.panel ul li label:hover{
+    cursor: pointer;
+    font-size: 14px;
+    color: #000; /* Cor da fonte das opções de mapa quando passado o mouse. */
+}
+
+/* new */
+.ul-payment {
+    list-style:none;
+}
+
+.ul-payment li {
+    margin-top: 15px;
+}
+
+.btn-payment{
+    margin-left: 6px;
+}
+
+.swal-footer {
+    text-align:center!important;
+    margin-top:0px!important;
+}
+
+.btn-danger:not([disabled]):hover{
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.info{border-bottom: 1px solid red}
+.row-name{margin:20px;}
+.row-name h5{font-size:20px;}
+.row-popup a { cursor: pointer; }
+.row-p {margin-top:25px!important;}
+.row-p p {margin-bottom:3px!important;}

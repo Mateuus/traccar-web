@@ -111,6 +111,11 @@ Ext.define('Traccar.controller.Root', {
             Traccar.app.setUser(Ext.decode(response.responseText));
             this.loadApp();
         } else {
+            $.getJSON('../../themes/default/info.json', function(data) {
+				window.location.assign(data.linkReturnSessi);
+			});
+
+            /*
             this.login = Ext.create('widget.login', {
                 listeners: {
                     scope: this,
@@ -144,7 +149,7 @@ Ext.define('Traccar.controller.Root', {
                     }
                 }, this);
                 dialog.textField.inputEl.dom.type = 'password';
-            }
+            }*/
         }
     },
 
@@ -216,7 +221,46 @@ Ext.define('Traccar.controller.Root', {
             this.fireEvent('showsingleevent', eventId);
             this.removeUrlParameter('eventId');
         }
+
+        /** MOD
+         * Função para contar veiculos offline movimento e online
+         **/
+
+        // Start a simple clock task that updates a div once per second
+        var deviceontask = {
+            run: function(){
+                var countOnline = 0,
+                countMoving = 0,
+                countOffline = 0,
+                countTotal = 0;
+
+            Ext.getStore('Devices').each(function (record) {
+                if (record.get('status') == 'movement') {
+                    countMoving++;
+                } else if (record.get('status') == 'online') {
+                    countOnline++;
+                } else {
+                    countOffline++;
+                }
+                countTotal++;
+            });
+
+            var ScountOnline = countOnline.toString();
+            var ScountMoving = countMoving.toString();
+            var ScountOffline = countOffline.toString();
+            var ScountTotal = countTotal.toString();
+
+            $('#dOnline').text(ScountOnline);
+            $('#dOffline').text(ScountOffline);
+            $('#dVM').text(ScountMoving);
+            $('#dTotal').text(ScountTotal);
+            },
+            interval: 1000 //1 second
+        }
+        Ext.TaskManager.start(deviceontask);
     },
+
+    
 
     beep: function () {
         if (!this.beepSound) {
