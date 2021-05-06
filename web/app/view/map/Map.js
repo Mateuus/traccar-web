@@ -88,6 +88,14 @@ Ext.define('Traccar.view.map.Map', {
             stateId: 'streetview-button',
             toggleHandler: 'openStreetView'
         }, {
+            handler: 'openSafeZone',
+            reference: 'ShowsafezoneButton',
+            glyph: 'xf018@FontAwesome',
+			id: "safezoneIdd",
+            pressed: true,
+            tooltip: "Safezone",
+            stateId: 'safezone-button'
+        }, {
             xtype: 'settingsMenu',
             enableToggle: false
         }]

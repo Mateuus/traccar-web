@@ -103,6 +103,74 @@ Ext.define('Traccar.view.map.MapController', {
            panorama = null;
        }
    },
+    
+    openSafeZone:function(button,pressed){
+        var position, deviceId, deviceName, lat, long, safezoneRadius, circle, projection, feature, isSafezone = false;
+        deviceId = this.selectedMarker.get('record').get('id');
+        deviceName = this.selectedMarker.get('record').get('name');
+        if (this.lookupReference('ShowsafezoneButton').pressed) {
+            position = Ext.getStore('LatestPositions').findRecord('deviceId',this.selectedMarker.get('record').get('id'),0,false,false,true);
+            lat = position.get('latitude');
+            long = position.get("longitude");
+            safezoneRadius = 30;
+            projection = this.getView().getMapView();
+
+            Ext.getStore('Geofences').each(function (geofence) {
+                if(geofence.get('name') == deviceName) {
+                    Traccar.app.showToast("Safezone já está Ligada!");
+                    isSafezone = true;
+                }
+            }, this);
+
+            circle = "CIRCLE ("+lat+" "+long+", "+safezoneRadius+")";
+
+            var data = { "id": 0, "name": deviceName, "description": "SafeZone", "area": circle, "calendarId": 0, "attributes": {"speedLimit":10} };
+            if(!isSafezone) {
+                Ext.Ajax.request({
+                    scope: this,
+                    method: 'POST',
+                    url: 'api/geofences',
+                    jsonData: Ext.util.JSON.encode(data),
+                    callback: function (options, success, response) {
+                        if (!success) {
+                            Traccar.app.showError(response);
+                        }else{
+                            const geofenceID = JSON.parse(response.responseText);//Função aguardando criação de api para trocar devicegeofence
+                            Traccar.app.showToast("Safezone Ligada!");
+                            Ext.getStore('Geofences').load();
+                        }
+                    }
+                });
+            
+                //Não está funcionando
+                feature = new ol.Feature(Traccar.GeofenceConverter.wktToGeometry(projection, circle));
+                feature.setStyle(this.getAreaStyle(deviceName, null));
+                this.getView().getGeofencesSource().addFeature(feature);
+            }
+            
+        }else{
+            this.getView().getGeofencesSource().clear(); 
+            Ext.getStore('Geofences').each(function (geofence) {
+               if(deviceName == geofence.get('name')) {
+                 var id = geofence.get('id');
+                 Ext.Ajax.request({
+                    scope: this,
+                    method: 'DELETE',
+                    url: 'api/geofences/'+id+'',
+                    headers: { 'Content-Type': 'application/json' },
+                    callback: function (options, success, response) {
+                        if (!success) {
+                            Traccar.app.showError(response);
+                        }else{
+                           Ext.getStore('Geofences').load();
+                           Traccar.app.showToast("Safezone Desligada!");
+                        }
+                    }
+                });
+               }
+            }, this);
+        }
+    },
 
     showLiveRoutes: function (button) {
         this.getView().getLiveRouteLayer().setVisible(button.pressed);

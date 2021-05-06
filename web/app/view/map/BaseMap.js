@@ -618,6 +618,8 @@ Ext.define('Traccar.view.map.BaseMap', {
                        document.getElementById('local').onclick = function(){
                                window.open('https://www.google.com/maps/place/'+position.get('latitude')+','+position.get("longitude")+'/@'+position.get('latitude')+','+position.get('longitude')+',17z/data\x3d!3m1!4b1!4m5!3m4!1s0x0:0x0!8m2!3d'+position.get('latitude')+'!4d'+position.get('longitude')+',_blank');
                        };
+
+                      document.getElementById('localSafezone').onclick=function(){document.getElementById('safezoneIdd').click()};
                    }
                }
            }	
