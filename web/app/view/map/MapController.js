@@ -105,7 +105,7 @@ Ext.define('Traccar.view.map.MapController', {
    },
     
     openSafeZone:function(button,pressed){
-        var position, deviceId, deviceName, lat, long, safezoneRadius, circle, projection, feature, isSafezone = false;
+        var position, deviceId, deviceName, lat, long, safezoneRadius, circle, projection, feature, geofenceID, isSafezone = false;
         deviceId = this.selectedMarker.get('record').get('id');
         deviceName = this.selectedMarker.get('record').get('name');
         if (this.lookupReference('ShowsafezoneButton').pressed) {
@@ -121,9 +121,7 @@ Ext.define('Traccar.view.map.MapController', {
                     isSafezone = true;
                 }
             }, this);
-
             circle = "CIRCLE ("+lat+" "+long+", "+safezoneRadius+")";
-
             var data = { "id": 0, "name": deviceName, "description": "SafeZone", "area": circle, "calendarId": 0, "attributes": {"speedLimit":10} };
             if(!isSafezone) {
                 Ext.Ajax.request({
@@ -135,9 +133,22 @@ Ext.define('Traccar.view.map.MapController', {
                         if (!success) {
                             Traccar.app.showError(response);
                         }else{
-                            const geofenceID = JSON.parse(response.responseText);//Função aguardando criação de api para trocar devicegeofence
-                            Traccar.app.showToast("Safezone Ligada!");
-                            Ext.getStore('Geofences').load();
+                            geofenceID = JSON.parse(response.responseText);
+                            var geodata = {"deviceId": deviceId, "geofenceId": geofenceID.id}
+                            Ext.Ajax.request({
+                                scope: this,
+                                method: 'POST',
+                                url: 'api/permissions',
+                                jsonData: Ext.util.JSON.encode(geodata),
+                                callback: function (options, success, response) {
+                                    if (!success) {
+                                        Traccar.app.showError(response);
+                                    }else{
+                                        Traccar.app.showToast("Safezone Ligada!");
+                                        Ext.getStore('Geofences').load();
+                                    }
+                                }
+                            });
                         }
                     }
                 });
