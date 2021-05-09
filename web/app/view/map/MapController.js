@@ -106,23 +106,30 @@ Ext.define('Traccar.view.map.MapController', {
     
     openSafeZone:function(button,pressed){
         var position, deviceId, deviceName, lat, long, safezoneRadius, circle, projection, feature, geofenceID, isSafezone = false;
+        //Pegar variáveis do Device
         deviceId = this.selectedMarker.get('record').get('id');
         deviceName = this.selectedMarker.get('record').get('name');
         if (this.lookupReference('ShowsafezoneButton').pressed) {
+            //Pegar posição do device do Device
             position = Ext.getStore('LatestPositions').findRecord('deviceId',this.selectedMarker.get('record').get('id'),0,false,false,true);
             lat = position.get('latitude');
             long = position.get("longitude");
             safezoneRadius = 30;
             projection = this.getView().getMapView();
 
+            //Verificar se o Anti Furto Já está ligado.
             Ext.getStore('Geofences').each(function (geofence) {
                 if(geofence.get('name') == deviceName) {
-                    Traccar.app.showToast("Safezone já está Ligada!");
+                    Traccar.app.showToast("Anti Furto já está Ligado!");
                     isSafezone = true;
                 }
             }, this);
+
+            //Criar Geofance
             circle = "CIRCLE ("+lat+" "+long+", "+safezoneRadius+")";
-            var data = { "id": 0, "name": deviceName, "description": "SafeZone", "area": circle, "calendarId": 0, "attributes": {"speedLimit":10} };
+            var data = { "id": 0, "name": deviceName, "description": "Anti Furto", "area": circle, "calendarId": 0, "attributes": {"color":"#FF0000"} };
+
+            //verificar se está ativa o não
             if(!isSafezone) {
                 Ext.Ajax.request({
                     scope: this,
@@ -144,7 +151,7 @@ Ext.define('Traccar.view.map.MapController', {
                                     if (!success) {
                                         Traccar.app.showError(response);
                                     }else{
-                                        Traccar.app.showToast("Safezone Ligada!");
+                                        Traccar.app.showToast("Anti Furto Ligado!");
                                         Ext.getStore('Geofences').load();
                                     }
                                 }
@@ -152,14 +159,13 @@ Ext.define('Traccar.view.map.MapController', {
                         }
                     }
                 });
-            
-                //Não está funcionando
+                //Criar um Circulo.
                 feature = new ol.Feature(Traccar.GeofenceConverter.wktToGeometry(projection, circle));
                 feature.setStyle(this.getAreaStyle(deviceName, null));
                 this.getView().getGeofencesSource().addFeature(feature);
             }
-            
         }else{
+            //Deletar Anti Furto
             this.getView().getGeofencesSource().clear(); 
             Ext.getStore('Geofences').each(function (geofence) {
                if(deviceName == geofence.get('name')) {
@@ -174,7 +180,7 @@ Ext.define('Traccar.view.map.MapController', {
                             Traccar.app.showError(response);
                         }else{
                            Ext.getStore('Geofences').load();
-                           Traccar.app.showToast("Safezone Desligada!");
+                           Traccar.app.showToast("Anti Furto Desligado!");
                         }
                     }
                 });
