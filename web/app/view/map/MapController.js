@@ -127,7 +127,7 @@ Ext.define('Traccar.view.map.MapController', {
 
             //Criar Geofance
             circle = "CIRCLE ("+lat+" "+long+", "+safezoneRadius+")";
-            var data = { "id": 0, "name": deviceName, "description": "Anti Furto", "area": circle, "calendarId": 0, "attributes": {"color":"#FF0000"} };
+            var data = { "id": 0, "name": deviceName, "description": "AntiFurto", "area": circle, "calendarId": 0, "attributes": {"color":"#FF0000"} };
 
             //verificar se está ativa o não
             if(!isSafezone) {
